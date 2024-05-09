@@ -7,27 +7,35 @@ namespace Kangelane
 {
     public class Kangelane
     {
-        /*
-        string nimi;
-        string asukoht;
+        
+        private string nimi;
+        private string asukoht;
 
-        Kangelane(string nimi, string asukoht) { 
-            Nimi = nimi;
-            Asukoht=asukoht;
+        public Kangelane(string nimi, string asukoht) { 
+            this.nimi = nimi;
+            this.asukoht = asukoht;
         }
         
-        private string Nimi { get; set; }
-        private string Asukoht { get; set; }
-        */
-        public static string saved(int number) {
-
-            return (Math.Round(number * 0.95).ToString() + " olevate inimeste arvust");
-
+        public string Nimi { 
+            get { return nimi; }
+            set { nimi = value; }
         }
-    }
-    public class SuperKangelane : Kangelane
+        public string Asukoht { 
+            get { return asukoht; }
+            set { asukoht = value; }
+        }
+        
+        public override string ToString()
+        {
+            return $"Hero: {nimi}, Location: {asukoht}";
+        }
+
+        public int Save(int paastetudInimesteArvu)
     {
-        public SuperKangelane() { }
+        double savedPercentage = 0.95;
+        int InimesteArvu = (int)Math.Round(paastetudInimesteArvu * savedPercentage);
+        return InimesteArvu;
+    }
     }
 }
 
