@@ -1,13 +1,10 @@
 ﻿using System;
 using System.Runtime.CompilerServices;
 
-
-
 namespace Kangelane
 {
     public class Kangelane
-    {
-        
+    {   
         private string nimi;
         private string asukoht;
 
@@ -31,11 +28,41 @@ namespace Kangelane
         }
 
         public int Save(int paastetudInimesteArvu)
-    {
-        double savedPercentage = 0.95;
-        int InimesteArvu = (int)Math.Round(paastetudInimesteArvu * savedPercentage);
-        return InimesteArvu;
+        {
+            double savedPercentage = 0.95;
+            int InimesteArvu = (int)Math.Round(paastetudInimesteArvu * savedPercentage);
+            return InimesteArvu;
+        }
+
     }
+
+    public class SuperKangelane : Kangelane
+    {
+        private string nimi;
+        private string asukoht;
+        private double osavuse;
+
+
+        public SuperKangelane(string nimi, string asukoht, double osavuses) : base(nimi, asukoht)
+        {
+
+        }
+
+        public double Osavuse
+        {
+            get { return this.osavuse; }
+            set { this.osavuse = value; }
+        }
+        public int Save(int paastetudInimesteArvu)
+        {
+            double savedPercentage = 0.95;
+            int InimesteArvu = (int)Math.Round((paastetudInimesteArvu + this.osavuse) * savedPercentage);
+            return InimesteArvu;
+        }
+        public override string ToString()
+        {
+            return base.ToString()+$" Skill: {osavuse}";
+        }
+
     }
 }
-
