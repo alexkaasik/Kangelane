@@ -43,26 +43,35 @@ namespace Kangelane
         private double osavuse;
 
 
-        public SuperKangelane(string nimi, string asukoht, double osavuses) : base(nimi, asukoht)
+        public SuperKangelane(string nimi, string asukoht, double osavuse) : base(nimi, asukoht)
         {
 
         }
 
         public double Osavuse
         {
-            get { return this.osavuse; }
-            set { this.osavuse = value; }
+            get { return osavuse; }
+            set {
+                double test = value;
+                if (!(value >= 1.0 && value <= 5.0))
+                {
+                    //throw new ArgumentException("Skill must be in the range [1, 5].");
+                    Console.WriteLine("Skill must be in the range [1, 5].");
+                    test = 0;
+                }
+                osavuse = test;
+            }
         }
         public int Save(int paastetudInimesteArvu)
         {
-            double savedPercentage = 0.95;
-            int InimesteArvu = (int)Math.Round((paastetudInimesteArvu + this.osavuse) * savedPercentage);
+            //double savedPercentage = 0.95;
+            //int InimesteArvu = (int)Math.Round(paastetudInimesteArvu * (savedPercentage + (osavuse/100) ));
+            int InimesteArvu = (int)Math.Round( base.Save(paastetudInimesteArvu) * ( 1.0 + ( osavuse/100.0 )  ) );
             return InimesteArvu;
         }
         public override string ToString()
         {
             return base.ToString()+$" Skill: {osavuse}";
         }
-
     }
 }
