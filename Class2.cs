@@ -33,7 +33,6 @@ namespace Kangelane
             int InimesteArvu = (int)Math.Round(paastetudInimesteArvu * savedPercentage);
             return InimesteArvu;
         }
-
     }
 
     public class SuperKangelane : Kangelane
@@ -73,5 +72,25 @@ namespace Kangelane
         {
             return base.ToString()+$" Skill: {osavuse}";
         }
+        /*
+        public override void StatesFile(string HeroFile)
+        {
+            string[] readText = File.ReadAllText(HeroFile).Split("\n");  // Read the contents of the file
+            Console.WriteLine(readText);
+            foreach (string line in readText){
+
+                string name = line.Split(",")[0].Trim();
+                string location = line.Split(",")[1].Trim();
+                
+                Nimi = name;
+                Asukoht = location;
+
+                if (name.Contains("*")){
+                    string Spe = line.Split(",")[2].Trim();
+                    Osavuse = Spe;
+                }
+            }
+        }
+        */
     }
 }
