@@ -18,12 +18,31 @@ namespace Kangelane
             SuperKangelaneS[0] = new SuperKangelane("Superman", "London", 1.3);
             SuperKangelaneS[1] = new SuperKangelane("Batman", "Tokyo", 3.3);
             SuperKangelaneS[2] = new SuperKangelane("Spiderman", "Los Angeles", 4.3);
+            
+            bool loop = true;
 
-            Console.WriteLine();
-
-            Function.print(KangelaneK, SuperKangelaneS);
-            Function.StatesFile("Hero.txt", KangelaneK, SuperKangelaneS);   
-            //Function.print(KangelaneK, SuperKangelaneS);
+            while (loop){
+                Console.Write("Pick a mode:");
+                string mode = Console.ReadLine();
+                
+                switch (mode.ToLower()) {
+                    case "print":
+                        Function.print(KangelaneK, SuperKangelaneS);
+                        break;
+                    case "edit":
+                        Function.edit(KangelaneK, SuperKangelaneS);
+                        break;
+                    case "file":
+                        Function.StatesFile("Hero.txt", KangelaneK, SuperKangelaneS);   
+                        break;
+                    case "quit":
+                        loop = false;
+                        break;
+                    default:
+                        Console.WriteLine("Error");
+                        break;
+                }
+            }
         }
     }
 }
