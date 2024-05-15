@@ -44,6 +44,8 @@ namespace Kangelane
 
             foreach (string line in readText){
 
+                Console.WriteLine(line);
+
                 name = line.Split(",")[0].Trim();
                 location = line.Split(",")[1].Trim();
                 
@@ -53,10 +55,13 @@ namespace Kangelane
             
 
                 if (name.Contains("*")){
-                    spe = System.Convert.ToDouble(line.Split(",")[2].Trim());
-
+                    Console.WriteLine(line.Split(",")[2].Trim());
+                    Console.WriteLine(line.Split(",")[2].Trim());
+                    Console.WriteLine(line.Split(",")[2].Trim().Replace(".", ","));
+                    spe = System.Convert.ToDouble( line.Split(",")[2].Trim().Replace(".",","));
+                    Console.WriteLine(spe);
                     //Console.WriteLine(name.Replace("*","") + ":" + location + ":" + spe);
-                    //Console.WriteLine(spe.GetType());
+                    Console.WriteLine(spe.GetType());
                     SuperKangelaneS[b2+i1] = new SuperKangelane(name.Replace("*",""), location, spe);
                     i1++;
                 }
@@ -74,6 +79,8 @@ namespace Kangelane
         }
         public static void edit(Kangelane[] KangelaneK, SuperKangelane[] SuperKangelaneS) {
             string who;
+            Console.WriteLine("Sup = superhero");
+            Console.WriteLine("* 'anything else' = hero");
             do {
                 Console.Write("Who:");
                 who = Console.ReadLine();
@@ -92,7 +99,7 @@ namespace Kangelane
             int liner;
             while (true) {
                 try{
-                    Console.Write("Line:");
+                    Console.Write("pick line:");
                     string line = Console.ReadLine();
                     liner=int.Parse(line)-1;
                     break;
@@ -100,8 +107,9 @@ namespace Kangelane
                 catch {continue;}
             }
 
-            
-
+            Console.WriteLine("Name = Change Name");
+            Console.WriteLine("loca = Change location");
+            Console.WriteLine("poin = Change Osavuse");
             Console.Write("mode:");
             string mode = Console.ReadLine();
             string val;
@@ -133,13 +141,15 @@ namespace Kangelane
                             try{
                                 Console.Write("Edit poin:");
                                 val = Console.ReadLine();
-                                double val2 = System.Convert.ToDouble(val);
-                                SuperKangelaneS[2].Osavuse = System.Convert.ToDouble(val2);
+                                double val2 = Convert.ToDouble(val.Replace(".", ","));
+
+                                SuperKangelaneS[2].Osavuse = val2;
+
                                 break;
                             }
-                            catch {continue;}
-                        }
+                            catch {continue;}}
                     }
+
                     break;
             }
         }

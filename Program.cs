@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 
@@ -15,9 +15,9 @@ namespace Kangelane
             KangelaneK[2] = new  Kangelane("Spiderman","Los Angeles");
 
             SuperKangelane[] SuperKangelaneS = new SuperKangelane[64];
-            SuperKangelaneS[0] = new SuperKangelane("Superman", "London", 1.3);
-            SuperKangelaneS[1] = new SuperKangelane("Batman", "Tokyo", 3.3);
-            SuperKangelaneS[2] = new SuperKangelane("Spiderman", "Los Angeles", 4.3);
+            SuperKangelaneS[0] = new SuperKangelane("Superman", "London", 1.2);
+            SuperKangelaneS[1] = new SuperKangelane("Batman", "Tokyo", 3.2);
+            SuperKangelaneS[2] = new SuperKangelane("Spiderman", "Los Angeles", 4.2);
             
             bool loop = true;
 
@@ -33,7 +33,7 @@ namespace Kangelane
                         Function.edit(KangelaneK, SuperKangelaneS);
                         break;
                     case "file":
-                        Function.StatesFile("Hero.txt", KangelaneK, SuperKangelaneS);   
+                        Function.StatesFile("C:\\Users\\opilane\\Source\\Repos\\Aleksander_Kaasik\\C# test\\Kangelane\\Hero.txt", KangelaneK, SuperKangelaneS);   
                         break;
                     case "quit":
                         loop = false;

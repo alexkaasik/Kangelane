@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Runtime.CompilerServices;
 
 namespace Kangelane
@@ -52,7 +52,7 @@ namespace Kangelane
             get { return osavuse; }
             set {
                 double test = value;
-                if (!(value >= 1.0 && value <= 5.0))
+                if (value < 1.0 || value > 5.0)
                 {
                     //throw new ArgumentException("Skill must be in the range [1, 5].");
                     Console.WriteLine("Skill must be in the range [1, 5].");
